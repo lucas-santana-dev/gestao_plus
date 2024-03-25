@@ -1,12 +1,19 @@
 package view.components;
 
+import controller.ClienteController;
+import model.ClienteModel;
+
 import javax.swing.*;
 import javax.swing.text.MaskFormatter;
 import javax.swing.text.NumberFormatter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.text.ParseException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class CadastroClienteForm extends JPanel {
     private JTextField nomeField;
@@ -41,6 +48,7 @@ public class CadastroClienteForm extends JPanel {
         add(new JLabel("RG:"), gbc);
         gbc.gridx++;
         rgField = createFormattedTextField("##.###.###-##");
+        rgField.setColumns(10); //TODO Verificar com professor o motivo de que quando o valor ultrapassa 10 acontece o erro do parce
         add(rgField, gbc);
 
         gbc.gridx = 0;
@@ -66,14 +74,30 @@ public class CadastroClienteForm extends JPanel {
         submitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Nome: " + getNome());
-                System.out.println("CPF: " + getCPF());
-                System.out.println("RG: " + getRG());
-                System.out.println("Data de Nascimento: " + getDataNascimento());
-                System.out.println("Limite de Crédito: " + getLimiteCredito());
+                ClienteModel novoCliente = new ClienteModel();
+                novoCliente.setId(1);
+                novoCliente.setNome(nomeField.getText());
+                novoCliente.setCpf(cpfField.getText());
+                novoCliente.setRg(convertToInt(rgField));
+                try {
+                    novoCliente.setDataNascimento(ConvertToLocalDate(dataNascimentoField));
+                } catch (ParseException ex) {
+                    throw new RuntimeException(ex);
+                }
+                try {
+                    novoCliente.setLimiteCred(ConvertToBigDecimal(limiteCreditoField));
+                } catch (ParseException ex) {
+                    throw new RuntimeException(ex);
+                }
+                ClienteController.salvarNovoCliente(novoCliente);
             }
         });
         add(submitButton, gbc);
+    }
+    private int convertToInt(JFormattedTextField textField) {
+        String rgText = textField.getText().trim();
+        rgText = rgText.replaceAll("[^0-9]", ""); // Remove todos os caracteres que não são dígitos
+        return Integer.parseInt(rgText); // Converte a string limpa para um número inteiro
     }
 
     private JFormattedTextField createFormattedTextField(String mask) {
@@ -87,6 +111,18 @@ public class CadastroClienteForm extends JPanel {
             return new JFormattedTextField();
         }
     }
+    private BigDecimal ConvertToBigDecimal(JFormattedTextField textField) throws ParseException {
+        String text = textField.getText();
+        DecimalFormat format = (DecimalFormat) DecimalFormat.getInstance();
+        format.setParseBigDecimal(true);
+        return (BigDecimal) format.parse(text);
+    }
+    private LocalDate ConvertToLocalDate(JFormattedTextField textField) throws ParseException {
+        String text = textField.getText();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        return LocalDate.parse(text, formatter);
+    }
+
 
     private NumberFormatter createDoubleFormatter() {
         java.text.NumberFormat format = java.text.NumberFormat.getNumberInstance();
@@ -95,27 +131,4 @@ public class CadastroClienteForm extends JPanel {
         return new javax.swing.text.NumberFormatter(format);
     }
 
-    public String getNome() {
-        return nomeField.getText();
-    }
-
-    public String getCPF() {
-        return cpfField.getText().replaceAll("[^0-9]", "");
-    }
-
-    public String getRG() {
-        return rgField.getText().replaceAll("[^0-9]", "");
-    }
-
-    public String getDataNascimento() {
-        return dataNascimentoField.getText();
-    }
-
-    public double getLimiteCredito() {
-        try {
-            return ((Number) limiteCreditoField.getValue()).doubleValue();
-        } catch (NullPointerException e) {
-            return 0.0;
-        }
-    }
 }
