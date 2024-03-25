@@ -25,11 +25,15 @@ public class MainFrame extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
         menuLateral = new MenuLateral();
+
         // Cria uma instância do formulário de cadastro de cliente
         cadastroClienteForm = new CadastroClienteForm();
+
         // Adiciona o formulário na posição BorderLayout.CENTER
         add(cadastroClienteForm, BorderLayout.CENTER);
         add(menuLateral, BorderLayout.WEST);
+
+
         Footer footer = new Footer("Não tão orgulhosamente feito com JAVA © 2024 by Lucas Santana");
         add(footer,BorderLayout.SOUTH);
         setLocationRelativeTo(null); // Abre a janela no meio da tela
