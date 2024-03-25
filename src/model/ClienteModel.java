@@ -1,28 +1,29 @@
 package model;
 
-import java.util.Date;
+import java.math.BigDecimal;
+import java.time.LocalDate;
 
 public class ClienteModel {
 
     private long id;
     private String nome;
-    private int cpf;
+    private String cpf; // Alteração para representar CPF como String
     private int rg;
-    private Date data_nascimento;
-    private float limite_cred;
+    private LocalDate dataNascimento; // Alteração para usar LocalDate em vez de Date
+    private BigDecimal limiteCred; // Alteração para usar BigDecimal para representar limite de crédito
 
     // Construtor padrão
     public ClienteModel() {
     }
 
     // Construtor com todos os parâmetros
-    public ClienteModel(long id, String nome, int cpf, int rg, Date data_nascimento, float limite_cred) {
+    public ClienteModel(long id, String nome, String cpf, int rg, LocalDate dataNascimento, BigDecimal limiteCred) {
         this.id = id;
         this.nome = nome;
         this.cpf = cpf;
         this.rg = rg;
-        this.data_nascimento = data_nascimento;
-        this.limite_cred = limite_cred;
+        this.dataNascimento = dataNascimento;
+        this.limiteCred = limiteCred;
     }
 
     // Métodos Get
@@ -34,7 +35,7 @@ public class ClienteModel {
         return nome;
     }
 
-    public int getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
@@ -42,12 +43,12 @@ public class ClienteModel {
         return rg;
     }
 
-    public Date getData_nascimento() {
-        return data_nascimento;
+    public LocalDate getDataNascimento() {
+        return dataNascimento;
     }
 
-    public float getLimite_cred() {
-        return limite_cred;
+    public BigDecimal getLimiteCred() {
+        return limiteCred;
     }
 
     // Métodos Set
@@ -59,7 +60,7 @@ public class ClienteModel {
         this.nome = nome;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
@@ -67,11 +68,11 @@ public class ClienteModel {
         this.rg = rg;
     }
 
-    public void setData_nascimento(Date data_nascimento) {
-        this.data_nascimento = data_nascimento;
+    public void setDataNascimento(LocalDate dataNascimento) {
+        this.dataNascimento = dataNascimento;
     }
 
-    public void setLimite_cred(float limite_cred) {
-        this.limite_cred = limite_cred;
+    public void setLimiteCred(BigDecimal limiteCred) {
+        this.limiteCred = limiteCred;
     }
 }
