@@ -4,28 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e073514e-06f6-4375-a5ea-da4b45f668d6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/MigLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestao_plus.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/miglayout-core-javadoc.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/miglayout-core-sources.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/miglayout-core.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/miglayout-swing-javadoc.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/miglayout-swing-sources.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/miglayout-swing.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/util/SetSizeRelativeToScreen.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/components/CadastroClienteForm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/components/Footer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/components/MenuLateral.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/frames/mainframe/MainFrame.java" afterDir="false" />
-    </list>
+    <list default="true" id="e073514e-06f6-4375-a5ea-da4b45f668d6" name="Changes" comment="feat: Inclusão dos models para Cliente,Pedido e Produto" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,6 +37,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "onboarding.tips.debug.path": "/Volumes/Dados/Projetos/gestao_plus/src/Main.java",
     "settings.editor.selected.configurable": "preferences.pluginManager"
@@ -88,7 +68,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-17.0.9-jbrsdk-17.0.9-3183f394aec4-1e1a4159" />
+        <option value="jdk-17.0.9-jbr-17.0.9-8336523bb0d9-60f32a88" />
       </set>
     </attachedChunks>
   </component>
@@ -101,6 +81,19 @@
       <option name="presentableId" value="Default" />
       <updated>1710964969075</updated>
     </task>
+    <task id="LOCAL-00001" summary="feat: Inclusão dos models para Cliente,Pedido e Produto">
+      <option name="closed" value="true" />
+      <created>1711376261985</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1711376261985</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat: Inclusão dos models para Cliente,Pedido e Produto" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Inclusão dos models para Cliente,Pedido e Produto" />
   </component>
 </project>
