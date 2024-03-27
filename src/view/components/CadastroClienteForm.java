@@ -89,7 +89,18 @@ public class CadastroClienteForm extends JPanel {
                 } catch (ParseException ex) {
                     throw new RuntimeException(ex);
                 }
-                ClienteController.salvarNovoCliente(novoCliente);
+                boolean clienteSalvoComSucesso = ClienteController.salvarNovoCliente(novoCliente);
+                if (clienteSalvoComSucesso) {
+                    JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso!");
+                    // Limpa os campos após o sucesso do cadastro
+                    nomeField.setText("");
+                    cpfField.setText("");
+                    rgField.setText("");
+                    dataNascimentoField.setText("");
+                    limiteCreditoField.setText("");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Falha ao cadastrar o cliente. Por favor, tente novamente.");
+                }
             }
         });
         add(submitButton, gbc);

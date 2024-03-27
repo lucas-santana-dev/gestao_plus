@@ -8,11 +8,10 @@ import java.util.List;
 public class ClienteController {
 
     // Método para salvar um novo cliente
-    public static void salvarNovoCliente(ClienteModel novoCliente) {
-        // Aqui você pode implementar lógica para gerar um novo ID, se necessário
+    public static boolean salvarNovoCliente(ClienteModel novoCliente) {
         novoCliente.setId(gerarNovoId());
 
-        ClienteDAO.salvarCliente(novoCliente);
+       return ClienteDAO.salvarCliente(novoCliente);
     }
 
     // Método para carregar todos os clientes

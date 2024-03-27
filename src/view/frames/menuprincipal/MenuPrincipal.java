@@ -1,13 +1,15 @@
-package view.components;
+package view.frames.menuprincipal;
 
 import util.SetSizeRelativeToScreen;
+import view.frames.clientes.ClientesFrame;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class MenuPrincipal extends JFrame {
 
-    private JPanel jpanelMenuPrincipal = new JPanel();
+    private final JPanel jpanelMenuPrincipal = new JPanel();
+    private final ClientesFrame clientesFrame = new ClientesFrame();
 
     public MenuPrincipal(){
         setTitle("Menu Principal");
@@ -16,9 +18,9 @@ public class MenuPrincipal extends JFrame {
 
     private void initializeUI() {
         SetSizeRelativeToScreen.setSizeRelativeToScreen(this, 0.7, 0.7);
-
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setResizable(false);
-        setLocationRelativeTo(null); // Abre a janela no meio da tela
+        setLocationRelativeTo(null);
         jpanelMenuPrincipal.setLayout(new GridLayout(2, 3));
 
         String[] nomes = {"Clientes", "Produtos", "Abrir Cupom", "Estoque", };
@@ -38,8 +40,11 @@ public class MenuPrincipal extends JFrame {
         button.setHorizontalTextPosition(SwingConstants.CENTER);
         button.setPreferredSize(new Dimension(100, 100)); // Tamanho do botão
         button.addActionListener((e)-> {
-                //lógica a ser executada quando o botão for clicado
-                JOptionPane.showMessageDialog(MenuPrincipal.this, "Botão " + text + " clicado!");
+            switch (text){
+                case "Clientes":
+                    clientesFrame.setVisible(true);
+                    break;
+            }
             }
         );
         return button;

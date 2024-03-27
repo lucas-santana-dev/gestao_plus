@@ -1,8 +1,9 @@
 package view.components;
 
-import javax.swing.*;
+import view.frames.menuprincipal.MenuPrincipal;
 
 import javax.swing.*;
+
 import java.awt.*;
 
 public class Footer extends JPanel {
