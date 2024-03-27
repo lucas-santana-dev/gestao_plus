@@ -1,19 +1,16 @@
 package view.frames.mainframe;
 
 import util.SetSizeRelativeToScreen;
-import view.components.CadastroClienteForm;
 import view.components.Footer;
-import view.components.MenuLateral;
+import view.components.MainPanel;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class MainFrame extends JFrame {
 
-    private MenuLateral menuLateral;
-    private Footer footer;
-
-    private CadastroClienteForm cadastroClienteForm;
+    private final MainPanel mainPanel = new MainPanel();
+    private final Footer footer = new Footer("Não tão orgulhosamente feito com JAVA © 2024 by Lucas Santana");
 
     public MainFrame() {
         setTitle("Gestão Plus - O App de gestão para seu negócio");
@@ -21,24 +18,27 @@ public class MainFrame extends JFrame {
     }
 
     private void initializeUI() {
-        SetSizeRelativeToScreen.setSizeRelativeToScreen(this, 0.7, 0.7);
+        SetSizeRelativeToScreen.setSizeRelativeToScreen(this, 0.9, 0.9);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
-        menuLateral = new MenuLateral();
-
-        // Cria uma instância do formulário de cadastro de cliente
-        cadastroClienteForm = new CadastroClienteForm();
-
-        // Adiciona o formulário na posição BorderLayout.CENTER
-        add(cadastroClienteForm, BorderLayout.CENTER);
-        add(menuLateral, BorderLayout.WEST);
-
-
-        Footer footer = new Footer("Não tão orgulhosamente feito com JAVA © 2024 by Lucas Santana");
-        add(footer,BorderLayout.SOUTH);
-        setLocationRelativeTo(null); // Abre a janela no meio da tela
+        setLocationRelativeTo(null);
         setVisible(true);
+
+        {
+            JPanel panel = new JPanel(new GridBagLayout());
+            panel.setBackground(Color.WHITE);
+            GridBagConstraints gbc = new GridBagConstraints();
+            gbc.gridx = 0;
+            gbc.gridy = 0;
+            gbc.weightx = 1;
+            gbc.weighty = 1;
+            gbc.fill = GridBagConstraints.CENTER;
+            panel.add(mainPanel, gbc);
+            add(panel, BorderLayout.CENTER);
+        }
+
+        {
+            add(footer, BorderLayout.SOUTH);
+        }
     }
-
-
 }
