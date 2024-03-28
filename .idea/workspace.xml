@@ -5,14 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e073514e-06f6-4375-a5ea-da4b45f668d6" name="Changes" comment="feat: Correção de atributos na classe ClienteModel">
-      <change afterPath="$PROJECT_DIR$/src/view/frames/clientes/ClientesFrame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/components/ListagemClientesPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/ClienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ClienteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/ClienteDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/ClienteDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/database/clientes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/clientes.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/components/Footer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/components/Footer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/components/MenuPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/frames/menuprincipal/MenuPrincipal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/components/CadastroClienteForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/components/CadastroClienteForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/frames/clientes/ClientesFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/frames/clientes/ClientesFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

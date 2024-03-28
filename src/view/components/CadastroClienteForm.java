@@ -22,6 +22,9 @@ public class CadastroClienteForm extends JPanel {
     private JFormattedTextField dataNascimentoField;
     private JFormattedTextField limiteCreditoField;
 
+    private ListagemClientesPanel listagemClientesPanel;
+
+
     public CadastroClienteForm() {
         setLayout(new GridBagLayout());
 

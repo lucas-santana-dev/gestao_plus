@@ -2,14 +2,18 @@ package view.frames.clientes;
 
 import util.SetSizeRelativeToScreen;
 import view.components.CadastroClienteForm;
+import view.components.ListagemClientesPanel;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class ClientesFrame extends JFrame{
+public class ClientesFrame extends JFrame {
 
-    CadastroClienteForm cadastroClienteForm = new CadastroClienteForm();
-    public ClientesFrame(){
+    // Criando uma instância de JTabbedPane
+    private JTabbedPane tabbedPane = new JTabbedPane();
+    private CadastroClienteForm cadastroClienteForm = new CadastroClienteForm();
+    private final ListagemClientesPanel listagemClientesPanel = new ListagemClientesPanel();
+    public ClientesFrame() {
         initializeUI();
     }
 
@@ -19,22 +23,12 @@ public class ClientesFrame extends JFrame{
         setResizable(false);
         setLocationRelativeTo(null);
         setTitle("Clientes");
+        add(tabbedPane);
 
-        // Definindo layout da tela principal
-        getContentPane().setLayout(new BorderLayout());
+        tabbedPane.addTab("Cadastro de Cliente", cadastroClienteForm);
 
-        // Adicionando o CadastroClienteForm ao painel esquerdo
-        JPanel panelEsquerdo = new JPanel(new BorderLayout());
-        panelEsquerdo.add(cadastroClienteForm, BorderLayout.CENTER);
+        tabbedPane.addTab("Lista de Clientes", listagemClientesPanel); // Substitua JPanel pelo componente que desejar
 
-        // Adicionando o painel esquerdo e direito ao JSplitPane
-        JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, panelEsquerdo,panelEsquerdo);
-        splitPane.setResizeWeight(0.5); // Define a proporção inicial de redimensionamento
-
-        // Adicionando o JSplitPane à tela principal
-        getContentPane().add(splitPane, BorderLayout.CENTER);
-        add(cadastroClienteForm);
-
-
+        setVisible(true);
     }
 }

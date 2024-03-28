@@ -10,7 +10,6 @@ public class ClienteController {
     // Método para salvar um novo cliente
     public static boolean salvarNovoCliente(ClienteModel novoCliente) {
         novoCliente.setId(gerarNovoId());
-
        return ClienteDAO.salvarCliente(novoCliente);
     }
 
