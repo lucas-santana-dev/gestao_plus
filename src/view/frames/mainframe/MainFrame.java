@@ -1,8 +1,6 @@
 package view.frames.mainframe;
 
 import util.SetSizeRelativeToScreen;
-import view.components.Footer;
-import view.components.MainPanel;
 
 import javax.swing.*;
 import java.awt.*;

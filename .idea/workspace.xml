@@ -5,8 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e073514e-06f6-4375-a5ea-da4b45f668d6" name="Changes" comment="feat: Correção de atributos na classe ClienteModel">
-      <change afterPath="$PROJECT_DIR$/src/dao/ProdutoDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/frames/produtos/CadastroProdutoForm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/frames/produtos/ProdutosFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/ProdutoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/ProdutoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/ProdutoModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ProdutoModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/components/CadastroClienteForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/frames/clientes/CadastroClienteForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/components/Footer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/frames/mainframe/Footer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/components/ListagemClientesPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/frames/clientes/ListagemClientesPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/components/MainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/frames/mainframe/MainPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/frames/clientes/ClientesFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/frames/clientes/ClientesFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/frames/mainframe/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/frames/mainframe/MainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/frames/menuprincipal/MenuPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/frames/menuprincipal/MenuPrincipal.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

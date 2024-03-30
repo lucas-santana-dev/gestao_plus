@@ -1,4 +1,4 @@
-package view.components;
+package view.frames.clientes;
 
 import controller.ClienteController;
 import model.ClienteModel;

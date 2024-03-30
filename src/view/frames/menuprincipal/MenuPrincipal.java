@@ -2,6 +2,7 @@ package view.frames.menuprincipal;
 
 import util.SetSizeRelativeToScreen;
 import view.frames.clientes.ClientesFrame;
+import view.frames.produtos.ProdutosFrame;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,7 +10,7 @@ import java.awt.*;
 public class MenuPrincipal extends JFrame {
 
     private final JPanel jpanelMenuPrincipal = new JPanel();
-    private final ClientesFrame clientesFrame = new ClientesFrame();
+
 
     public MenuPrincipal(){
         setTitle("Menu Principal");
@@ -42,7 +43,12 @@ public class MenuPrincipal extends JFrame {
         button.addActionListener((e)-> {
             switch (text){
                 case "Clientes":
+                    ClientesFrame clientesFrame = new ClientesFrame();
                     clientesFrame.setVisible(true);
+                    break;
+                case  "Produtos":
+                    ProdutosFrame produtosFrame = new ProdutosFrame();
+                    produtosFrame.setVisible(true);
                     break;
             }
             }

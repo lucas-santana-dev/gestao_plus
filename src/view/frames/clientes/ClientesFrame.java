@@ -1,11 +1,8 @@
 package view.frames.clientes;
 
 import util.SetSizeRelativeToScreen;
-import view.components.CadastroClienteForm;
-import view.components.ListagemClientesPanel;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class ClientesFrame extends JFrame {
 

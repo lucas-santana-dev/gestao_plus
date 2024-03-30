@@ -1,4 +1,4 @@
-package view.components;
+package view.frames.mainframe;
 
 import javax.swing.*;
 import java.awt.*;

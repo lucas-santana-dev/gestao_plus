@@ -1,4 +1,4 @@
-package view.components;
+package view.frames.mainframe;
 
 import view.frames.menuprincipal.MenuPrincipal;
 
@@ -8,7 +8,7 @@ import java.awt.*;
 
 public class Footer extends JPanel {
     private JLabel label;
-    private JFrame menuPrincipal = new MenuPrincipal();
+
     public Footer(String text) {
         JPanel menuPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         setLayout(new BorderLayout());
@@ -17,6 +17,7 @@ public class Footer extends JPanel {
         menuButton.setFont(new Font("Arial", Font.PLAIN, 20));
         menuButton.setBorderPainted(false);
         menuButton.addActionListener((e)->{
+            JFrame menuPrincipal = new MenuPrincipal();
             menuPrincipal.setVisible(true);
         });
         menuPanel.add(menuButton);

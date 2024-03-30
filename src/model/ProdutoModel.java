@@ -1,5 +1,7 @@
 package model;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.time.LocalDate;
 import java.util.Date;
 
@@ -8,8 +10,8 @@ public class ProdutoModel {
     private long id;
     private String nomeProduto;
     private String tipoProduto;
-    private float precoCompra;
-    private float precoVenda;
+    private BigDecimal precoCompra;
+    private BigDecimal precoVenda;
     private LocalDate dataFabricacao;
     private LocalDate dataValidade;
     private double estoque;
@@ -24,8 +26,8 @@ public class ProdutoModel {
             long id,
             String nomeProduto,
             String tipoProduto,
-            float precoCompra,
-            float precoVenda,
+            BigDecimal precoCompra,
+            BigDecimal precoVenda,
             LocalDate dataFabricacao,
             LocalDate dataValidade,
             double estoque) {
@@ -62,19 +64,19 @@ public class ProdutoModel {
         this.tipoProduto = tipoProduto;
     }
 
-    public float getPrecoCompra() {
+    public BigDecimal getPrecoCompra() {
         return precoCompra;
     }
 
-    public void setPrecoCompra(float precoCompra) {
+    public void setPrecoCompra(BigDecimal precoCompra) {
         this.precoCompra = precoCompra;
     }
 
-    public float getPrecoVenda() {
+    public BigDecimal getPrecoVenda() {
         return precoVenda;
     }
 
-    public void setPrecoVenda(float precoVenda) {
+    public void setPrecoVenda(BigDecimal precoVenda) {
         this.precoVenda = precoVenda;
     }
 

@@ -3,6 +3,7 @@ package dao;
 import model.ProdutoModel;
 
 import java.io.*;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -71,8 +72,8 @@ public class ProdutoDAO {
             String nomeProduto = parts [1];
             String tipoProduto = parts[2];
             double estoque = Double.parseDouble(parts[3]);
-            float precoVenda = Float.parseFloat(parts[4]);
-            float precoCompra = Float.parseFloat(parts[5]);
+            BigDecimal precoVenda = new BigDecimal(parts[4]);
+            BigDecimal precoCompra = new BigDecimal(parts[5]);
             LocalDate dataFabricacao = LocalDate.parse(parts[6]);
             LocalDate dataValidade = LocalDate.parse(parts[7]);
             return  new ProdutoModel(

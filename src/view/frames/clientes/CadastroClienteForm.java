@@ -1,4 +1,4 @@
-package view.components;
+package view.frames.clientes;
 
 import controller.ClienteController;
 import model.ClienteModel;
@@ -22,9 +22,6 @@ public class CadastroClienteForm extends JPanel {
     private JFormattedTextField dataNascimentoField;
     private JFormattedTextField limiteCreditoField;
 
-    private ListagemClientesPanel listagemClientesPanel;
-
-
     public CadastroClienteForm() {
         setLayout(new GridBagLayout());
 
@@ -35,19 +32,25 @@ public class CadastroClienteForm extends JPanel {
         gbc.insets = new Insets(5, 5, 5, 5);
 
         add(new JLabel("Nome:"), gbc);
+
         gbc.gridx++;
+
         nomeField = new JTextField(20);
         add(nomeField, gbc);
 
         gbc.gridx = 0;
         gbc.gridy++;
+
         add(new JLabel("CPF:"), gbc);
+
         gbc.gridx++;
+
         cpfField = createFormattedTextField("###.###.###-##");
         add(cpfField, gbc);
 
         gbc.gridx = 0;
         gbc.gridy++;
+
         add(new JLabel("RG:"), gbc);
         gbc.gridx++;
         rgField = createFormattedTextField("##.###.###-##");
@@ -79,7 +82,7 @@ public class CadastroClienteForm extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 ClienteModel novoCliente = new ClienteModel();
                 novoCliente.setId(1);
-                novoCliente.setNome(nomeField.getText());
+                novoCliente.setNome(nomeField.getText().trim().toUpperCase());
                 novoCliente.setCpf(cpfField.getText());
                 novoCliente.setRg(convertToInt(rgField));
                 try {
