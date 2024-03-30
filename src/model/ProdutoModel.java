@@ -1,15 +1,17 @@
 package model;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class ProdutoModel {
 
+    private long id;
     private String nomeProduto;
     private String tipoProduto;
     private float precoCompra;
     private float precoVenda;
-    private Date dataFabricacao;
-    private Date dataValidade;
+    private LocalDate dataFabricacao;
+    private LocalDate dataValidade;
     private double estoque;
 
     //Construtor Padrão
@@ -19,24 +21,31 @@ public class ProdutoModel {
 
     //Construtor com parametros
     public ProdutoModel(
+            long id,
             String nomeProduto,
             String tipoProduto,
             float precoCompra,
             float precoVenda,
-            Date ddtaFabricacao,
-            Date dataValidade,
+            LocalDate dataFabricacao,
+            LocalDate dataValidade,
             double estoque) {
+        this.id = id;
         this.nomeProduto = nomeProduto;
         this.tipoProduto = tipoProduto;
         this.precoCompra = precoCompra;
         this.precoVenda = precoVenda;
-        this.dataFabricacao = ddtaFabricacao;
+        this.dataFabricacao = dataFabricacao;
         this.dataValidade = dataValidade;
         this.estoque = estoque;
     }
 
     //Metodos
-
+    public long getId() {
+        return id;
+    }
+    public void setId(long id) {
+        this.id = id;
+    }
     public String getNomeProduto() {
         return nomeProduto;
     }
@@ -69,19 +78,19 @@ public class ProdutoModel {
         this.precoVenda = precoVenda;
     }
 
-    public Date getDataFabricacao() {
+    public LocalDate getDataFabricacao() {
         return dataFabricacao;
     }
 
-    public void setDataFabricacao(Date dataFabricacao) {
+    public void setDataFabricacao(LocalDate dataFabricacao) {
         this.dataFabricacao = dataFabricacao;
     }
 
-    public Date getDataValidade() {
+    public LocalDate getDataValidade() {
         return dataValidade;
     }
 
-    public void setDataValidade(Date dataValidade) {
+    public void setDataValidade(LocalDate dataValidade) {
         this.dataValidade = dataValidade;
     }
 
