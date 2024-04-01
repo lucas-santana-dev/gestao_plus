@@ -48,6 +48,7 @@ public class ListagemClientesPanel extends JPanel {
         add(scrollPane, BorderLayout.CENTER);
     }
 
+    //TODO: Ver porque não funciona
     public void atualizarTabela() {
         DefaultTableModel model = (DefaultTableModel) table.getModel();
         model.setRowCount(0);

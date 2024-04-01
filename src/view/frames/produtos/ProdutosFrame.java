@@ -10,6 +10,8 @@ public class ProdutosFrame extends JFrame {
 
     private CadastroProdutoForm cadastroProdutoForm = new CadastroProdutoForm();
 
+    private ListagemProdutosPanel listageDeProdutos = new ListagemProdutosPanel();
+
    // private final ListagemProdutosPanel listagemProdutosPanel = new ListagemProdutosPanel();
     public ProdutosFrame(){initializeUI();}
 
@@ -22,6 +24,7 @@ public class ProdutosFrame extends JFrame {
         add(tabbedPane);
 
         tabbedPane.addTab("Cadastro de Produto", cadastroProdutoForm);
+        tabbedPane.add("Listagem de Produtos",listageDeProdutos);
 
         setVisible(true);
     }
