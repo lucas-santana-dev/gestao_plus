@@ -4,8 +4,11 @@ import main.util.SetSizeRelativeToScreen;
 import main.view.frames.clientes.ClientesFrame;
 import main.view.frames.produtos.ProdutosFrame;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 
 public class MenuPrincipal extends JFrame {
 
@@ -24,7 +27,7 @@ public class MenuPrincipal extends JFrame {
         setLocationRelativeTo(null);
         jpanelMenuPrincipal.setLayout(new GridLayout(2, 3));
 
-        String[] nomes = {"Clientes", "Produtos", "Abrir Cupom", "Estoque", };
+        String[] nomes = {"Clientes", "Produtos", "Vender", "Estoque", };
 
         for (String nomeBotao : nomes) {
             JButton button = createSquareButton(nomeBotao);
@@ -39,7 +42,24 @@ public class MenuPrincipal extends JFrame {
         JButton button = new JButton(text);
         button.setVerticalTextPosition(SwingConstants.BOTTOM);
         button.setHorizontalTextPosition(SwingConstants.CENTER);
-        button.setPreferredSize(new Dimension(100, 100)); // Tamanho do botão
+        button.setPreferredSize(new Dimension(90, 90)); // Tamanho do botão
+        button.setContentAreaFilled(false);
+        // Caminho do ícone
+        String iconPath = "src/main/img/" + text.toLowerCase() + ".png";
+
+        // Carregar o ícone do arquivo especificado
+        try {
+            File file = new File(iconPath);
+            if (file.exists()) {
+                ImageIcon icon = new ImageIcon(ImageIO.read(file));
+                // Redimensionar o ícone para o tamanho desejado
+                Image scaledImage = icon.getImage().getScaledInstance(75, 75, Image.SCALE_SMOOTH);
+                button.setIcon(new ImageIcon(scaledImage));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         button.addActionListener((e)-> {
             switch (text){
                 case "Clientes":
@@ -50,9 +70,9 @@ public class MenuPrincipal extends JFrame {
                     ProdutosFrame produtosFrame = new ProdutosFrame();
                     produtosFrame.setVisible(true);
                     break;
+                // Adicione mais cases conforme necessário
             }
-            }
-        );
+        });
         return button;
     }
 }
