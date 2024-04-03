@@ -43,7 +43,11 @@ public class MenuPrincipal extends JFrame {
         button.setVerticalTextPosition(SwingConstants.BOTTOM);
         button.setHorizontalTextPosition(SwingConstants.CENTER);
         button.setPreferredSize(new Dimension(90, 90)); // Tamanho do botão
-        button.setContentAreaFilled(false);
+      //  button.setContentAreaFilled(false);
+        button.setBackground(Color.WHITE);
+        button.setRolloverSelectedIcon(null);
+        button.setFocusPainted(false);
+        button.setRolloverEnabled(false);
         // Caminho do ícone
         String iconPath = "src/main/img/" + text.toLowerCase() + ".png";
 
@@ -52,7 +56,6 @@ public class MenuPrincipal extends JFrame {
             File file = new File(iconPath);
             if (file.exists()) {
                 ImageIcon icon = new ImageIcon(ImageIO.read(file));
-                // Redimensionar o ícone para o tamanho desejado
                 Image scaledImage = icon.getImage().getScaledInstance(75, 75, Image.SCALE_SMOOTH);
                 button.setIcon(new ImageIcon(scaledImage));
             }
