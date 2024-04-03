@@ -1,4 +1,4 @@
-import view.frames.mainframe.MainFrame;
+import main.view.frames.mainframe.MainFrame;
 
 public class Main {
     public static void main(String[] args) {
