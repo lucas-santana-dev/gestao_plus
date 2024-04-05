@@ -3,6 +3,7 @@ package main.view.frames.menuprincipal;
 import main.util.SetSizeRelativeToScreen;
 import main.view.frames.clientes.ClientesFrame;
 import main.view.frames.produtos.ProdutosFrame;
+import main.view.frames.venda.VendaFrame;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -14,8 +15,7 @@ public class MenuPrincipal extends JFrame {
 
     private final JPanel jpanelMenuPrincipal = new JPanel();
 
-
-    public MenuPrincipal(){
+    public MenuPrincipal() {
         setTitle("Menu Principal");
         initializeUI();
     }
@@ -27,7 +27,7 @@ public class MenuPrincipal extends JFrame {
         setLocationRelativeTo(null);
         jpanelMenuPrincipal.setLayout(new GridLayout(2, 3));
 
-        String[] nomes = {"Clientes", "Produtos", "Vender", "Estoque", };
+        String[] nomes = { "Clientes", "Produtos", "Vender", "Estoque", };
 
         for (String nomeBotao : nomes) {
             JButton button = createSquareButton(nomeBotao);
@@ -43,7 +43,7 @@ public class MenuPrincipal extends JFrame {
         button.setVerticalTextPosition(SwingConstants.BOTTOM);
         button.setHorizontalTextPosition(SwingConstants.CENTER);
         button.setPreferredSize(new Dimension(90, 90)); // Tamanho do botão
-      //  button.setContentAreaFilled(false);
+        // button.setContentAreaFilled(false);
         button.setBackground(Color.WHITE);
         button.setRolloverSelectedIcon(null);
         button.setFocusPainted(false);
@@ -63,15 +63,19 @@ public class MenuPrincipal extends JFrame {
             e.printStackTrace();
         }
 
-        button.addActionListener((e)-> {
-            switch (text){
+        button.addActionListener((e) -> {
+            switch (text) {
                 case "Clientes":
                     ClientesFrame clientesFrame = new ClientesFrame();
                     clientesFrame.setVisible(true);
                     break;
-                case  "Produtos":
+                case "Produtos":
                     ProdutosFrame produtosFrame = new ProdutosFrame();
                     produtosFrame.setVisible(true);
+                    break;
+                case "Vender":
+                    VendaFrame vendaFrame = new VendaFrame();
+                    vendaFrame.setVisible(true);
                     break;
                 // Adicione mais cases conforme necessário
             }
