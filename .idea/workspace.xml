@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e073514e-06f6-4375-a5ea-da4b45f668d6" name="Changes" comment="feat: Correção de atributos na classe ClienteModel">
-      <change afterPath="$PROJECT_DIR$/src/main/view/frames/mainframe/SideBar.java" afterDir="false" />
+    <list default="true" id="e073514e-06f6-4375-a5ea-da4b45f668d6" name="Changes" comment="feat: WIP">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestao_plus.iml" beforeDir="false" afterPath="$PROJECT_DIR$/gestao_plus.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/view/frames/mainframe/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/view/frames/mainframe/MainFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/view/frames/mainframe/MainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/view/frames/mainframe/MainPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/view/frames/mainframe/SideBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/view/frames/mainframe/SideBar.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,13 +123,22 @@
       <option name="project" value="LOCAL" />
       <updated>1711376429250</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="feat: WIP">
+      <option name="closed" value="true" />
+      <created>1715015079734</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1715015079734</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: Inclusão dos models para Cliente,Pedido e Produto" />
     <MESSAGE value="feat: Correção de atributos na classe ClienteModel" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Correção de atributos na classe ClienteModel" />
+    <MESSAGE value="feat: WIP" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: WIP" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -54,6 +54,15 @@ public class SideBar extends JPanel {
         card1.setPreferredSize(new Dimension(CARD_SIZE, CARD_SIZE)); // Definindo tamanho usando a variável
         card1.setBackground(cardColorPadrao); // Cor padrão
         card1.setForeground(Color.WHITE); // Cor do texto
+        card1.setLayout(new BorderLayout()); // Definindo layout para BorderLayout para posicionar os componentes
+        ImageIcon icon1 = new ImageIcon("src/main/img/vender.png"); // Substitua com o caminho do seu ícone
+        Image scaledIcon1 = icon1.getImage().getScaledInstance(-1, 50, Image.SCALE_SMOOTH); // Ajuste a altura conforme necessário
+        JLabel iconLabel1 = new JLabel(new ImageIcon(scaledIcon1));
+        card1.add(iconLabel1, BorderLayout.WEST);
+        JLabel textLabel1 = new JLabel("Nova Venda");
+        textLabel1.setHorizontalAlignment(SwingConstants.LEFT);
+        textLabel1.setVerticalAlignment(SwingConstants.BOTTOM);
+        card1.add(textLabel1, BorderLayout.SOUTH); //
         card1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -64,8 +73,17 @@ public class SideBar extends JPanel {
 
         JButton card2 = new JButton();
         card2.setPreferredSize(new Dimension(CARD_SIZE, CARD_SIZE)); // Definindo tamanho usando a variável
-        card2.setBackground(cardColorPadrao);
-
+        card2.setBackground(cardColorPadrao); // Cor padrão
+        card2.setForeground(Color.WHITE); // Cor do texto
+        card2.setLayout(new BorderLayout()); // Definindo layout para BorderLayout para posicionar os componentes
+        ImageIcon icon2 = new ImageIcon("src/main/img/clientes.png"); // Substitua com o caminho do seu ícone
+        Image scaledIcon2 = icon2.getImage().getScaledInstance(-1, 50, Image.SCALE_SMOOTH); // Ajuste a altura conforme necessário
+        JLabel iconLabel2 = new JLabel(new ImageIcon(scaledIcon2));
+        card2.add(iconLabel2, BorderLayout.WEST);
+        JLabel textLabel2 = new JLabel("Clientes");
+        textLabel2.setHorizontalAlignment(SwingConstants.LEFT);
+        textLabel2.setVerticalAlignment(SwingConstants.BOTTOM);
+        card2.add(textLabel2, BorderLayout.SOUTH); //
         card2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -73,10 +91,19 @@ public class SideBar extends JPanel {
             }
         });
         cardsPanel.add(card2);
-
         JButton card3 = new JButton();
         card3.setPreferredSize(new Dimension(CARD_SIZE, CARD_SIZE)); // Definindo tamanho usando a variável
         card3.setBackground(cardColorPadrao);
+        card3.setForeground(Color.WHITE); // Cor do texto
+        card3.setLayout(new BorderLayout());
+        ImageIcon icon3 = new ImageIcon("src/main/img/produtos.png"); // Substitua com o caminho do seu ícone
+        Image scaledIcon3 = icon3.getImage().getScaledInstance(-1, 50, Image.SCALE_SMOOTH); // Ajuste a altura conforme necessário
+        JLabel iconLabel3 = new JLabel(new ImageIcon(scaledIcon3));
+        card3.add(iconLabel3, BorderLayout.WEST);
+        JLabel textLabel3 = new JLabel("Produtos");
+        textLabel3.setHorizontalAlignment(SwingConstants.LEFT);
+        textLabel3.setVerticalAlignment(SwingConstants.BOTTOM);
+        card3.add(textLabel3, BorderLayout.SOUTH); //
         card3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -88,6 +115,17 @@ public class SideBar extends JPanel {
         JButton card4 = new JButton();
         card4.setPreferredSize(new Dimension(CARD_SIZE, CARD_SIZE)); // Definindo tamanho usando a variável
         card4.setBackground(cardColorPadrao);
+        card4.setForeground(Color.WHITE); // Cor do texto
+        card4.setLayout(new BorderLayout());
+        ImageIcon icon4 = new ImageIcon("src/main/img/estoque.png"); // Substitua com o caminho do seu ícone
+        Image scaledIcon4 = icon4.getImage().getScaledInstance(-1, 50, Image.SCALE_SMOOTH); // Ajuste a altura conforme necessário
+        JLabel iconLabel4 = new JLabel(new ImageIcon(scaledIcon4));
+        card4.add(iconLabel4, BorderLayout.WEST);
+        JLabel textLabel4 = new JLabel("Estoque");
+        textLabel4.setHorizontalAlignment(SwingConstants.LEFT);
+        textLabel4.setVerticalAlignment(SwingConstants.BOTTOM);
+        card4.add(textLabel4, BorderLayout.SOUTH); //
+
         card4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
