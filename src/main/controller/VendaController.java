@@ -8,5 +8,4 @@ public class VendaController {
     public static boolean salvarNovaVenda(VendaModel novaVenda) {
         return VendaDAO.salvarVenda(novaVenda);
     }
-
 }

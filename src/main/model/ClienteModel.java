@@ -8,7 +8,7 @@ public class ClienteModel {
     private long id;
     private String nome;
     private String cpf; // Alteração para representar CPF como String
-    private int rg;
+    private long rg;
     private LocalDate dataNascimento; // Alteração para usar LocalDate em vez de Date
     private BigDecimal limiteCred; // Alteração para usar BigDecimal para representar limite de crédito
 
@@ -17,7 +17,7 @@ public class ClienteModel {
     }
 
     // Construtor com todos os parâmetros
-    public ClienteModel(long id, String nome, String cpf, int rg, LocalDate dataNascimento, BigDecimal limiteCred) {
+    public ClienteModel(long id, String nome, String cpf, long rg, LocalDate dataNascimento, BigDecimal limiteCred) {
         this.id = id;
         this.nome = nome;
         this.cpf = cpf;
@@ -39,7 +39,7 @@ public class ClienteModel {
         return cpf;
     }
 
-    public int getRg() {
+    public long getRg() {
         return rg;
     }
 
@@ -64,7 +64,7 @@ public class ClienteModel {
         this.cpf = cpf;
     }
 
-    public void setRg(int rg) {
+    public void setRg(long rg) {
         this.rg = rg;
     }
 

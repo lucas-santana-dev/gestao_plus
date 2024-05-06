@@ -1,5 +1,1 @@
-
-main.model.ClienteModel@2b46e08f;A vista;[main.model.ProdutoModel@6d6b08ed];6.0
-main.model.ClienteModel@5ba6c86;Fiado;[main.model.ProdutoModel@26a6bebc, main.model.ProdutoModel@56e3edee];69.0
-main.model.ClienteModel@6ea20c2a;A vista;[main.model.ProdutoModel@26a6bebc];15.0
-main.model.ClienteModel@5ba6c86;Cart�o;[main.model.ProdutoModel@56e3edee, main.model.ProdutoModel@26a6bebc];135.0
+LUCAS DE ALMEIDA SANTANA;Cartão;CAFÉ PAQUERA;4950.0

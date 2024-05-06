@@ -30,7 +30,6 @@ public class ClienteController {
             }
         }
 
-        // Incrementar o último ID para obter um novo ID único
         return ultimoId + 1;
     }
 

@@ -2,6 +2,7 @@ package main.dao;
 
 import java.io.*;
 
+import main.model.ProdutoModel;
 import main.model.VendaModel;
 
 public class VendaDAO {
@@ -36,9 +37,15 @@ public class VendaDAO {
 
     // Método auxiliar para formatar uma venda como uma linha de texto
     private static String formatarVendaParaTexto(VendaModel venda) {
-        return venda.getCliente() + ";" +
-                venda.getFormaPagamento() + ";" +
-                venda.getProdutos() + ";" +
-                venda.getValorCompra();
+        StringBuilder sb = new StringBuilder();
+        sb.append(venda.getCliente().getNome()).append(";"); // Supondo que getNome retorne o nome do cliente
+        sb.append(venda.getFormaPagamento()).append(";");
+        for (ProdutoModel produto : venda.getProdutos()) {
+            sb.append(produto.getNomeProduto()).append(", "); // Supondo que getNome retorne o nome do produto
+        }
+        sb.delete(sb.length() - 2, sb.length()); // Remover a vírgula extra e o espaço após o último produto
+        sb.append(";").append(venda.getValorCompra());
+        return sb.toString();
     }
+
 }

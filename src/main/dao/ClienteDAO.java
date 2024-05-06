@@ -73,11 +73,30 @@ public class ClienteDAO {
             long id = Long.parseLong(parts[0]);
             String nome = parts[1];
             String cpf = parts[2];
-            int rg = Integer.parseInt(parts[3]);
+            long rg = Long.parseLong(parts[3]);
             LocalDate dataNascimento = LocalDate.parse(parts[4]);
             BigDecimal limiteCred = new BigDecimal(parts[5]);
             return new ClienteModel(id, nome, cpf, rg, dataNascimento, limiteCred);
         }
         return null;
     }
+    // Método para verificar se o arquivo de clientes está vazio
+    public static boolean arquivoClientesEstaVazio() {
+        File file = new File(FILENAME);
+        return file.exists() && file.length() == 0;
+    }
+
+    // Método para criar o cliente "Consumidor Final" caso o arquivo de clientes esteja vazio
+    public static void criarClienteConsumidorFinalSeVazio() {
+        if (arquivoClientesEstaVazio()) {
+            ClienteModel consumidorFinal = new ClienteModel();
+            consumidorFinal.setNome("Consumidor Final");
+            consumidorFinal.setCpf("");
+            consumidorFinal.setRg(0);
+            consumidorFinal.setDataNascimento(LocalDate.now());
+            consumidorFinal.setLimiteCred(BigDecimal.ZERO);
+            salvarCliente(consumidorFinal); // Salva o cliente "Consumidor Final" no arquivo
+        }
+    }
+
 }

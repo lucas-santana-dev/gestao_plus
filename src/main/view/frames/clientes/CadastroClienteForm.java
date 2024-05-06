@@ -84,7 +84,7 @@ public class CadastroClienteForm extends JPanel {
                 novoCliente.setId(1);
                 novoCliente.setNome(nomeField.getText().trim().toUpperCase());
                 novoCliente.setCpf(cpfField.getText());
-                novoCliente.setRg(convertToInt(rgField));
+                novoCliente.setRg(convertToLong(rgField));
                 try {
                     novoCliente.setDataNascimento(ConvertToLocalDate(dataNascimentoField));
                 } catch (ParseException ex) {
@@ -111,11 +111,12 @@ public class CadastroClienteForm extends JPanel {
         });
         add(submitButton, gbc);
     }
-    private int convertToInt(JFormattedTextField textField) {
+    private long convertToLong(JFormattedTextField textField) {
         String rgText = textField.getText().trim();
         rgText = rgText.replaceAll("[^0-9]", ""); // Remove todos os caracteres que não são dígitos
-        return Integer.parseInt(rgText); // Converte a string limpa para um número inteiro
+        return Long.parseLong(rgText); // Converte a string limpa para um número longo
     }
+
 
     private JFormattedTextField createFormattedTextField(String mask) {
         try {
