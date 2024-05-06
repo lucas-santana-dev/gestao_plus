@@ -4,20 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e073514e-06f6-4375-a5ea-da4b45f668d6" name="Changes" comment="feat:">
+    <list default="true" id="e073514e-06f6-4375-a5ea-da4b45f668d6" name="Changes" comment="feat:atualizaões">
+      <change afterPath="$PROJECT_DIR$/src/main/view/frames/login/FormLoginPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/view/frames/login/LoginFrame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/view/frames/login/LogoPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestao_plus.iml" beforeDir="false" afterPath="$PROJECT_DIR$/gestao_plus.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/controller/ClienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/controller/ClienteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/controller/VendaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/controller/VendaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/dao/ClienteDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/ClienteDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/dao/VendaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/VendaDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/database/clientes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/database/clientes.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/database/produtos.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/database/produtos.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/database/vendas.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/database/vendas.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/model/ClienteModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/model/ClienteModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/view/frames/clientes/CadastroClienteForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/view/frames/clientes/CadastroClienteForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/teste" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +26,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="kkgfkf" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -77,7 +69,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "tela-de-login",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Volumes/Dados/Projetos/gestao_plus/src/img",
@@ -167,14 +159,23 @@
       <option name="project" value="LOCAL" />
       <updated>1712156115924</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="feat:atualizaões">
+      <option name="closed" value="true" />
+      <created>1715007229992</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1715007229992</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: Inclusão dos models para Cliente,Pedido e Produto" />
     <MESSAGE value="feat: Correção de atributos na classe ClienteModel" />
     <MESSAGE value="feat:" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat:" />
+    <MESSAGE value="feat:atualizaões" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat:atualizaões" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
