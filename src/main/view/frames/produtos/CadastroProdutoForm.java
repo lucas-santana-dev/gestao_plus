@@ -17,7 +17,7 @@ public class CadastroProdutoForm extends JPanel {
 
     private final JTextField nomeProdutoField;
     private final JTextField tipoProdutoField;
-    private final  JFormattedTextField precoCompra;
+    private final JFormattedTextField precoCompra;
     private final JFormattedTextField precoVenda;
     private final JFormattedTextField dataFabricacao;
     private final JFormattedTextField dataValidade;
@@ -112,7 +112,7 @@ public class CadastroProdutoForm extends JPanel {
         gbc.gridwidth = 2;
         gbc.anchor = GridBagConstraints.CENTER;
         JButton submitButton = new JButton("Cadastrar");
-        submitButton.addActionListener((e)->{
+        submitButton.addActionListener((e) -> {
             ProdutoModel produto = new ProdutoModel();
             produto.setId(1);
             produto.setNomeProduto(nomeProdutoField.getText().trim().toUpperCase());
@@ -131,10 +131,11 @@ public class CadastroProdutoForm extends JPanel {
             } catch (NumberFormatException ex) {
                 // Lidar com a situação em que a entrada não é um número válido
                 // Por exemplo, exibir uma mensagem de erro ao usuário
-                JOptionPane.showMessageDialog(this, "Por favor, insira um valor numérico válido para o estoque.", "Erro", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Por favor, insira um valor numérico válido para o estoque.",
+                        "Erro", JOptionPane.ERROR_MESSAGE);
             }
             boolean produtoSalvoComSucesso = ProdutoController.salvarProduto(produto);
-            if (produtoSalvoComSucesso){
+            if (produtoSalvoComSucesso) {
                 JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso!");
                 nomeProdutoField.setText("");
                 tipoProdutoField.setText("");
@@ -143,14 +144,13 @@ public class CadastroProdutoForm extends JPanel {
                 dataFabricacao.setText("");
                 dataValidade.setText("");
                 estoque.setText("");
-            }else{
+            } else {
                 JOptionPane.showMessageDialog(null, "Falha ao cadastrar o produto. Por favor, tente novamente!");
             }
 
         });
         add(submitButton, gbc);
     }
-
 
     private JFormattedTextField createFormattedTextField() {
         try {
@@ -170,11 +170,13 @@ public class CadastroProdutoForm extends JPanel {
         format.setParseBigDecimal(true);
         return (BigDecimal) format.parse(text);
     }
+
     private LocalDate ConvertToLocalDate(JFormattedTextField textField) throws ParseException {
         String text = textField.getText();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         return LocalDate.parse(text, formatter);
     }
+
     private NumberFormatter createDoubleFormatter() {
         java.text.NumberFormat format = java.text.NumberFormat.getNumberInstance();
         format.setMinimumFractionDigits(2);

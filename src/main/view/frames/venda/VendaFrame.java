@@ -14,12 +14,11 @@ public class VendaFrame extends JFrame {
     }
 
     private void initializeUI() {
-        SetSizeRelativeToScreen.setSizeRelativeToScreen(this, 0.7, 0.8);
+        SetSizeRelativeToScreen.setSizeRelativeToScreen(this, 0.8, 0.8);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setResizable(false);
         setLocationRelativeTo(null);
         setTitle("Venda");
-        // setSize(700, 600);
         add(tabbedPane);
 
         tabbedPane.addTab("Realizar Venda", realizarVendaForm);
