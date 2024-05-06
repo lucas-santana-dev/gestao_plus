@@ -3,10 +3,14 @@ package main.view.frames.venda;
 import javax.swing.*;
 
 import main.controller.ClienteController;
+import main.controller.VendaController;
 import main.model.ClienteModel;
+import main.model.VendaModel;
 
 import java.awt.*;
 import java.awt.event.ItemListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.util.List;
 
@@ -16,13 +20,11 @@ public class RealizarVendaForm extends JPanel {
     public String clienteSelecionado;
     private JComboBox comboBoxPagamento;
     public String pagamentoSelecionado;
-    private JFormattedTextField totalField;
     private CaixaProdutos caixaProdutos;
 
     public RealizarVendaForm() {
 
         setLayout(new GridBagLayout());
-        // setBorder(new EmptyBorder(5, 5, 5, 5));
 
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.weightx = 1;
@@ -33,6 +35,7 @@ public class RealizarVendaForm extends JPanel {
         gbc.insets = new Insets(5, 5, 5, 5);
         add(new JLabel("Cliente:"), gbc);
 
+        // array list com todos os clientes
         List<ClienteModel> clientes = ClienteController.carregarTodosClientes();
 
         gbc.gridx = 1;
@@ -74,19 +77,35 @@ public class RealizarVendaForm extends JPanel {
         add(caixaProdutos, gbc);
 
         gbc.gridx = 0;
-        gbc.gridy = 4;
-        add(new JLabel("Total:"), gbc);
-
-        gbc.gridx = 1;
-        gbc.gridy = 4;
-        totalField = new JFormattedTextField();
-        add(totalField, gbc);
-
-        gbc.gridx = 0;
         gbc.gridy = 5;
         gbc.gridwidth = 2;
         gbc.anchor = GridBagConstraints.CENTER;
         JButton botaoSalvar = new JButton("Salvar");
+        botaoSalvar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                VendaModel novaVenda = new VendaModel();
+                ClienteModel cliente;
+                for (int i = 0; i < clientes.size(); i++) {
+                    cliente = clientes.get(i);
+                    if (cliente.getNome() == clienteSelecionado) {
+                        novaVenda.setCliente(cliente);
+                    }
+                }
+
+                novaVenda.setFormaPagamento(pagamentoSelecionado);
+                novaVenda.setProdutos(caixaProdutos.produtosSelecionados);
+                novaVenda.setValorCompra(caixaProdutos.soma);
+
+                boolean vendaSalvaComSucesso = VendaController.salvarNovaVenda(novaVenda);
+                if (vendaSalvaComSucesso) {
+                    JOptionPane.showMessageDialog(null, "Venda realizada com sucesso!");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Falha ao realizar a venda. Por favor, tente novamente.");
+                }
+
+            }
+        });
         add(botaoSalvar, gbc);
 
     }

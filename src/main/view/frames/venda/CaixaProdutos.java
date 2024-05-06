@@ -8,6 +8,7 @@ import main.model.ProdutoModel;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CaixaProdutos extends JComponent {
@@ -20,8 +21,12 @@ public class CaixaProdutos extends JComponent {
     private JTable tabelaCompra;
     private DefaultTableModel modeloTabela;
     private JButton btnRemover;
+    private JTextField totalField;
+    private float preco = 0;
+    public float soma = 0;
 
     List<ProdutoModel> produtos = ProdutoController.carregarTodosProdutos();
+    List<ProdutoModel> produtosSelecionados = new ArrayList<>();
 
     public CaixaProdutos() {
         GridLayout gridLayout = new GridLayout(0, 2);
@@ -45,8 +50,13 @@ public class CaixaProdutos extends JComponent {
         listaProdutos.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
         scrollPaneLista = new JScrollPane(listaProdutos);
         scrollPaneLista.setSize(200, 15);
+        totalField = new JTextField();
         btnAdicionar = new JButton("Adicionar >>");
         btnAdicionar.addActionListener((ActionEvent e) -> {
+
+            // usuário digita a quantidade de produtos
+            int quantidade = Integer.parseInt(JOptionPane.showInputDialog("Digite a quantidade:"));
+
             // obtém a lista de todos os produtos
             List<String> listProd = listaProdutos.getSelectedValuesList();
 
@@ -59,11 +69,23 @@ public class CaixaProdutos extends JComponent {
                 for (int j = 0; j < produtos.size(); j++) {
                     ProdutoModel produto = produtos.get(j); // obtém todos os produtos cadastrados
                     if (produto.getNomeProduto() == produtoSelecionado) {
-                        modeloTabela.addRow(new Object[] { produto.getNomeProduto(), "", produto.getPrecoVenda() });
+
+                        produtosSelecionados.add(produto);
+
+                        preco = quantidade * produto.getPrecoVenda().floatValue();
+
+                        modeloTabela
+                                .addRow(new Object[] { produto.getNomeProduto(), quantidade,
+                                        preco });
                     }
                     modeloLista.removeElement(produtoSelecionado);
                 }
             }
+
+            // cálculo do preço total
+            soma = soma + preco;
+
+            totalField.setText("R$ " + soma);
         });
 
         Object[] colunas = { "Produto", "Quantidade", "Valor" };
@@ -78,24 +100,58 @@ public class CaixaProdutos extends JComponent {
         btnRemover.addActionListener((ActionEvent e) -> {
             // obtém o produto que deseja remover
             int linha = tabelaCompra.getSelectedRow();
+
             modeloLista.addElement(tabelaCompra.getValueAt(linha, 0));
+
+            // estrutura de repetição para remover o produto da lista de compras
+            for (int i = 0; i < produtosSelecionados.size(); i++) {
+
+                if (tabelaCompra.getValueAt(linha, 0).toString() == produtosSelecionados.get(i).getNomeProduto()) {
+                    produtosSelecionados.remove(i);
+                }
+            }
+
+            // cálculo do preço total
+            soma = soma - objectToFloat(tabelaCompra.getValueAt(linha, 2));
+
+            totalField.setText("R$ " + soma);
+
+            // remove o produto
             modeloTabela.removeRow(linha);
+
         });
 
         // configurar o layout da esquerda
         JPanel painelEsquerda = new JPanel(new BorderLayout());
         painelEsquerda.add(new Label("Produtos"), BorderLayout.NORTH);
         painelEsquerda.add(scrollPaneLista, BorderLayout.CENTER);
-        painelEsquerda.add(btnAdicionar, BorderLayout.SOUTH);
+        painelEsquerda.add(btnAdicionar, BorderLayout.EAST);
+        painelEsquerda.add(new Label("TOTAL"), BorderLayout.SOUTH);
 
         // configurar o layout da direita
         JPanel painelDireita = new JPanel(new BorderLayout());
         painelDireita.add(new Label("Compras"), BorderLayout.NORTH);
         painelDireita.add(scrollPaneTabela, BorderLayout.CENTER);
-        painelDireita.add(btnRemover, BorderLayout.SOUTH);
+        painelDireita.add(btnRemover, BorderLayout.EAST);
+        painelDireita.add(totalField, BorderLayout.SOUTH);
 
         // adicionar os componentes
         add(painelEsquerda); // colocado na coluna 0
         add(painelDireita); // colocado na coluna 1
+    }
+
+    // Método para converter um objeto para float
+    private Float objectToFloat(Object o) {
+        if (o == null) {
+            return null;
+        }
+        if (o instanceof Float) {
+            return (Float) o;
+        }
+        try {
+            return Float.valueOf(o.toString());
+        } catch (NumberFormatException e) {
+            return null;
+        }
     }
 }

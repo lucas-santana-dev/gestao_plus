@@ -2,6 +2,7 @@ package main.view.frames.menuprincipal;
 
 import main.util.SetSizeRelativeToScreen;
 import main.view.frames.clientes.ClientesFrame;
+import main.view.frames.pedido.PedidoFrame;
 import main.view.frames.produtos.ProdutosFrame;
 import main.view.frames.venda.VendaFrame;
 
@@ -76,6 +77,10 @@ public class MenuPrincipal extends JFrame {
                 case "Vender":
                     VendaFrame vendaFrame = new VendaFrame();
                     vendaFrame.setVisible(true);
+                    break;
+                case "Estoque":
+                    PedidoFrame pedidoFrame = new PedidoFrame();
+                    pedidoFrame.setVisible(true);
                     break;
                 // Adicione mais cases conforme necessário
             }

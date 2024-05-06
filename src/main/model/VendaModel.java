@@ -7,7 +7,7 @@ public class VendaModel {
 
     private ClienteModel cliente;
     private List<ProdutoModel> produtos;
-    private FormaPagamentoModel formaPagamento;
+    private String formaPagamento;
     private float valorCompra; // Valor total da compra
 
     // Construtor padrão
@@ -16,7 +16,7 @@ public class VendaModel {
     }
 
     // Construtor com todos os parâmetros
-    public VendaModel(ClienteModel cliente, List<ProdutoModel> produtos, FormaPagamentoModel formaPagamento, float valorCompra) {
+    public VendaModel(ClienteModel cliente, List<ProdutoModel> produtos, String formaPagamento, float valorCompra) {
         this.cliente = cliente;
         this.produtos = produtos;
         this.formaPagamento = formaPagamento;
@@ -40,11 +40,11 @@ public class VendaModel {
         this.produtos = produtos;
     }
 
-    public FormaPagamentoModel getFormaPagamento() {
+    public String getFormaPagamento() {
         return formaPagamento;
     }
 
-    public void setFormaPagamento(FormaPagamentoModel formaPagamento) {
+    public void setFormaPagamento(String formaPagamento) {
         this.formaPagamento = formaPagamento;
     }
 
