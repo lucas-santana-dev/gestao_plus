@@ -12,9 +12,6 @@ public class MainPanel extends JPanel {
     private void initializeUI() {
         setLayout(new BorderLayout());
         setBackground(Color.WHITE);
-        ImageIcon icon = new ImageIcon("src/main/img/supermarket.png");
-        JLabel imageLabel = new JLabel();
-        imageLabel.setIcon(icon);
-        add(imageLabel, BorderLayout.CENTER);
+
     }
 }

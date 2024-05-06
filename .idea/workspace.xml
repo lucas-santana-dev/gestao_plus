@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e073514e-06f6-4375-a5ea-da4b45f668d6" name="Changes" comment="feat: Correção de atributos na classe ClienteModel">
+      <change afterPath="$PROJECT_DIR$/src/main/view/frames/mainframe/SideBar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestao_plus.iml" beforeDir="false" afterPath="$PROJECT_DIR$/gestao_plus.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/view/frames/mainframe/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/view/frames/mainframe/MainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/view/frames/mainframe/MainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/view/frames/mainframe/MainPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,10 +47,14 @@
   "keyToString": {
     "Application.BorderLayoutExample.executor": "Run",
     "Application.Main.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "nova-tela-principal",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Volumes/Dados/Projetos/gestao_plus/src/img",

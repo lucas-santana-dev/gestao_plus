@@ -9,6 +9,7 @@ public class MainFrame extends JFrame {
 
     private final MainPanel mainPanel = new MainPanel();
     private final Footer footer = new Footer("Não tão orgulhosamente feito com JAVA © 2024 by Lucas Santana");
+    private final SideBar sideBar = new SideBar();
 
     public MainFrame() {
         setTitle("Gestão Plus - O App de gestão para seu negócio");
@@ -22,21 +23,17 @@ public class MainFrame extends JFrame {
         setLocationRelativeTo(null);
         setVisible(true);
 
-        {
-            JPanel panel = new JPanel(new GridBagLayout());
-            panel.setBackground(Color.WHITE);
-            GridBagConstraints gbc = new GridBagConstraints();
-            gbc.gridx = 0;
-            gbc.gridy = 0;
-            gbc.weightx = 1;
-            gbc.weighty = 1;
-            gbc.fill = GridBagConstraints.CENTER;
-            panel.add(mainPanel, gbc);
-            add(panel, BorderLayout.CENTER);
-        }
+        // Adicionando BorderLayout ao JFrame
+        setLayout(new BorderLayout());
 
-        {
-            add(footer, BorderLayout.SOUTH);
-        }
+        // Criando e adicionando um JPanel preto na região WEST
+
+        add(sideBar, BorderLayout.WEST);
+
+        // Adicionando o MainPanel na região CENTER
+        add(mainPanel, BorderLayout.CENTER);
+
+        // Adicionando o Footer na região SOUTH
+        add(footer, BorderLayout.SOUTH);
     }
 }
