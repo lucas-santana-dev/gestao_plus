@@ -2,185 +2,162 @@ package main.view.frames.produtos;
 
 import main.controller.ProdutoController;
 import main.model.ProdutoModel;
+import org.jdatepicker.impl.JDatePanelImpl;
+import org.jdatepicker.impl.JDatePickerImpl;
+import org.jdatepicker.impl.UtilDateModel;
 
 import javax.swing.*;
-import javax.swing.text.MaskFormatter;
 import javax.swing.text.NumberFormatter;
 import java.awt.*;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+import java.time.ZoneId;
+import java.util.Date;
+import java.util.Properties;
 
 public class CadastroProdutoForm extends JPanel {
 
+    // Campos de texto e componentes de seleção de data
     private final JTextField nomeProdutoField;
     private final JTextField tipoProdutoField;
     private final JFormattedTextField precoCompra;
     private final JFormattedTextField precoVenda;
-    private final JFormattedTextField dataFabricacao;
-    private final JFormattedTextField dataValidade;
+    private final JDatePickerImpl dataFabricacaoPicker;
+    private final JDatePickerImpl dataValidadePicker;
     private final JFormattedTextField estoque;
 
     public CadastroProdutoForm() {
-        setLayout(new GridBagLayout());
+        setPreferredSize(new Dimension(350, 500)); // Define o tamanho preferido do JPanel
+        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS)); // Esquema de layout vertical
 
-        GridBagConstraints gbc = new GridBagConstraints();
-        gbc.gridx = 0;
-        gbc.gridy = 0;
-        gbc.anchor = GridBagConstraints.WEST;
-        gbc.insets = new Insets(5, 5, 5, 5);
+        // Inicializa os componentes
+        nomeProdutoField = new JTextField(20);
+        tipoProdutoField = new JTextField(20);
+        precoCompra = createFormattedTextField();
+        precoVenda = createFormattedTextField();
+        dataFabricacaoPicker = createDatePicker();
+        dataValidadePicker = createDatePicker();
+        estoque = createFormattedTextField();
 
-        add(new JLabel("Nome do Produto:"), gbc);
+        // Adiciona os campos ao formulário
+        addField("Nome do Produto:", nomeProdutoField);
+        addField("Tipo do Produto:", tipoProdutoField);
+        addField("Preço de Compra:", precoCompra);
+        addField("Preço de Venda:", precoVenda);
+        addField("Data de Fabricação:", dataFabricacaoPicker);
+        addField("Data de Validade:", dataValidadePicker);
+        addField("Estoque:", estoque);
 
-        gbc.gridx = 1;
-        gbc.gridwidth = GridBagConstraints.REMAINDER; // Ocupa o restante da linha
-        nomeProdutoField = new JTextField(50);
-        add(nomeProdutoField, gbc);
-
-        gbc.gridx = 0;
-        gbc.gridy++;
-
-        gbc.gridwidth = 1; // Resetando gridwidth para o padrão
-        add(new JLabel("Tipo do Produto:"), gbc);
-
-        gbc.gridx = 1;
-        gbc.gridwidth = GridBagConstraints.REMAINDER; // Ocupa o restante da linha
-        tipoProdutoField = new JTextField(50);
-        add(tipoProdutoField, gbc);
-
-        gbc.gridx = 0;
-        gbc.gridy++;
-
-        gbc.gridwidth = 1; // Resetando gridwidth para o padrão
-        add(new JLabel("Preço de Compra:"), gbc);
-
-        gbc.gridx = 1;
-        gbc.gridwidth = GridBagConstraints.REMAINDER; // Ocupa o restante da linha
-        precoCompra = new JFormattedTextField(createDoubleFormatter());
-        precoCompra.setColumns(15);
-        add(precoCompra, gbc);
-
-        gbc.gridx = 0;
-        gbc.gridy++;
-
-        gbc.gridwidth = 1; // Resetando gridwidth para o padrão
-        add(new JLabel("Preço de Venda:"), gbc);
-
-        gbc.gridx = 1;
-        gbc.gridwidth = GridBagConstraints.REMAINDER; // Ocupa o restante da linha
-        precoVenda = new JFormattedTextField(createDoubleFormatter());
-        precoVenda.setColumns(15);
-        add(precoVenda, gbc);
-
-        gbc.gridx = 0;
-        gbc.gridy++;
-
-        gbc.gridwidth = 1; // Resetando gridwidth para o padrão
-        add(new JLabel("Data de Fabricação (dd/MM/aaaa):"), gbc);
-
-        gbc.gridx = 1;
-        gbc.gridwidth = GridBagConstraints.REMAINDER; // Ocupa o restante da linha
-        dataFabricacao = createFormattedTextField();
-        add(dataFabricacao, gbc);
-
-        gbc.gridx = 0;
-        gbc.gridy++;
-
-        gbc.gridwidth = 1; // Resetando gridwidth para o padrão
-        add(new JLabel("Data de Validade (dd/MM/aaaa):"), gbc);
-
-        gbc.gridx = 1;
-        gbc.gridwidth = GridBagConstraints.REMAINDER; // Ocupa o restante da linha
-        dataValidade = createFormattedTextField();
-        add(dataValidade, gbc);
-
-        gbc.gridx = 0;
-        gbc.gridy++;
-
-        gbc.gridwidth = 1; // Resetando gridwidth para o padrão
-        add(new JLabel("Estoque:"), gbc);
-
-        gbc.gridx = 1;
-        gbc.gridwidth = GridBagConstraints.REMAINDER; // Ocupa o restante da linha
-        estoque = new JFormattedTextField(createDoubleFormatter());
-        estoque.setColumns(15);
-        add(estoque, gbc);
-        gbc.gridx = 0;
-        gbc.gridy++;
-        gbc.gridwidth = 2;
-        gbc.anchor = GridBagConstraints.CENTER;
+        // Botão de cadastro
         JButton submitButton = new JButton("Cadastrar");
-        submitButton.addActionListener((e) -> {
-            ProdutoModel produto = new ProdutoModel();
-            produto.setId(1);
-            produto.setNomeProduto(nomeProdutoField.getText().trim().toUpperCase());
-            produto.setTipoProduto(tipoProdutoField.getText().trim().toUpperCase());
-            try {
-                produto.setPrecoCompra(ConvertToBigDecimal(precoCompra));
-                produto.setPrecoVenda(ConvertToBigDecimal(precoVenda));
-                produto.setDataFabricacao(ConvertToLocalDate(dataFabricacao));
-                produto.setDataValidade(ConvertToLocalDate(dataValidade));
-            } catch (ParseException ex) {
-                throw new RuntimeException(ex);
-            }
-            try {
-                double estoqueValue = Double.parseDouble(estoque.getText().replaceAll(",", "."));
-                // Agora você pode usar o valor de estoqueValue conforme necessário
-            } catch (NumberFormatException ex) {
-                // Lidar com a situação em que a entrada não é um número válido
-                // Por exemplo, exibir uma mensagem de erro ao usuário
-                JOptionPane.showMessageDialog(this, "Por favor, insira um valor numérico válido para o estoque.",
-                        "Erro", JOptionPane.ERROR_MESSAGE);
-            }
-            boolean produtoSalvoComSucesso = ProdutoController.salvarProduto(produto);
-            if (produtoSalvoComSucesso) {
-                JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso!");
-                nomeProdutoField.setText("");
-                tipoProdutoField.setText("");
-                precoCompra.setText("");
-                precoVenda.setText("");
-                dataFabricacao.setText("");
-                dataValidade.setText("");
-                estoque.setText("");
-            } else {
-                JOptionPane.showMessageDialog(null, "Falha ao cadastrar o produto. Por favor, tente novamente!");
-            }
-
-        });
-        add(submitButton, gbc);
+        submitButton.addActionListener((e) -> cadastrarProduto());
+        add(submitButton);
     }
 
+    // Método para adicionar um campo ao formulário
+    private void addField(String label, JComponent field) {
+        JPanel panel = new JPanel();
+        panel.setLayout(new FlowLayout(FlowLayout.LEFT));
+        panel.add(new JLabel(label));
+        panel.add(field);
+        add(panel);
+    }
+
+    // Método para criar um campo de texto formatado para números
     private JFormattedTextField createFormattedTextField() {
+        JFormattedTextField textField = new JFormattedTextField(createDoubleFormatter());
+        textField.setColumns(15);
+        return textField;
+    }
+
+    // Método para criar um seletor de data
+    private JDatePickerImpl createDatePicker() {
+        UtilDateModel model = new UtilDateModel();
+        Properties properties = new Properties();
+        properties.put("text.today", "Hoje");
+        properties.put("text.month", "Mês");
+        properties.put("text.year", "Ano");
+        JDatePanelImpl datePanel = new JDatePanelImpl(model, properties);
+        return new JDatePickerImpl(datePanel, new DateLabelFormatter());
+    }
+
+    // Método para formatar números como moeda
+    private NumberFormatter createDoubleFormatter() {
+        DecimalFormat format = new DecimalFormat("#,##0.00");
+        format.setMinimumFractionDigits(2);
+        format.setMaximumFractionDigits(2);
+        NumberFormatter formatter = new NumberFormatter(format);
+        formatter.setValueClass(BigDecimal.class);
+        formatter.setAllowsInvalid(false);
+        return formatter;
+    }
+
+    // Método para cadastrar o produto
+    private void cadastrarProduto() {
+        ProdutoModel produto = new ProdutoModel();
+        produto.setId(1);
+        produto.setNomeProduto(nomeProdutoField.getText().trim().toUpperCase());
+        produto.setTipoProduto(tipoProdutoField.getText().trim().toUpperCase());
         try {
-            MaskFormatter formatter = new MaskFormatter("##/##/####");
-            JFormattedTextField textField = new JFormattedTextField(formatter);
-            textField.setColumns(15);
-            return textField;
-        } catch (ParseException e) {
-            e.printStackTrace();
-            return new JFormattedTextField();
+            produto.setPrecoCompra((BigDecimal) precoCompra.getValue());
+            produto.setPrecoVenda((BigDecimal) precoVenda.getValue());
+            produto.setDataFabricacao(convertToLocalDate(dataFabricacaoPicker));
+            produto.setDataValidade(convertToLocalDate(dataValidadePicker));
+        } catch (ParseException ex) {
+            throw new RuntimeException(ex);
+        }
+        try {
+            double estoqueValue = Double.parseDouble(estoque.getText().replaceAll(",", "."));
+            // Agora você pode usar o valor de estoqueValue conforme necessário
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "Por favor, insira um valor numérico válido para o estoque.",
+                    "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+        boolean produtoSalvoComSucesso = ProdutoController.salvarProduto(produto);
+        if (produtoSalvoComSucesso) {
+            JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso!");
+            clearFields();
+        } else {
+            JOptionPane.showMessageDialog(null, "Falha ao cadastrar o produto. Por favor, tente novamente!");
         }
     }
 
-    private BigDecimal ConvertToBigDecimal(JFormattedTextField textField) throws ParseException {
-        String text = textField.getText();
-        DecimalFormat format = (DecimalFormat) DecimalFormat.getInstance();
-        format.setParseBigDecimal(true);
-        return (BigDecimal) format.parse(text);
+    // Método para limpar os campos do formulário
+    private void clearFields() {
+        nomeProdutoField.setText("");
+        tipoProdutoField.setText("");
+        precoCompra.setValue(null);
+        precoVenda.setValue(null);
+        dataFabricacaoPicker.getModel().setValue(null);
+        dataValidadePicker.getModel().setValue(null);
+        estoque.setText("");
     }
 
-    private LocalDate ConvertToLocalDate(JFormattedTextField textField) throws ParseException {
-        String text = textField.getText();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        return LocalDate.parse(text, formatter);
+    // Método para converter um seletor de data em LocalDate
+    private LocalDate convertToLocalDate(JDatePickerImpl datePicker) throws ParseException {
+        Date selectedDate = (Date) datePicker.getModel().getValue();
+        return selectedDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
     }
 
-    private NumberFormatter createDoubleFormatter() {
-        java.text.NumberFormat format = java.text.NumberFormat.getNumberInstance();
-        format.setMinimumFractionDigits(2);
-        format.setMaximumFractionDigits(2);
-        return new javax.swing.text.NumberFormatter(format);
+    // Classe auxiliar para formatar a exibição da data no JDatePicker
+    static class DateLabelFormatter extends JFormattedTextField.AbstractFormatter {
+        private final String datePattern = "dd/MM/yyyy";
+        private final SimpleDateFormat dateFormatter = new SimpleDateFormat(datePattern);
+
+        @Override
+        public Object stringToValue(String text) throws ParseException {
+            return dateFormatter.parseObject(text);
+        }
+
+        @Override
+        public String valueToString(Object value) throws ParseException {
+            if (value != null) {
+                return dateFormatter.format(value);
+            }
+            return "";
+        }
     }
 }
